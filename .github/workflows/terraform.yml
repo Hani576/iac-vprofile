@@ -70,11 +70,11 @@ jobs:
       - name: "Terraform apply"
         id: apple
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        HEAD
+        
         run: terraform  destroy #apply -no-color -input=false -auto-approve -parallelism=1 planfile.tfplan
 
         run: terraform destroy -no-color -input=false -auto-approve -parallelism=1 #planfile.tfplan
-        stage
+        
 
 
       - name: "configure aws credentials"
