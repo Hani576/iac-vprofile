@@ -83,8 +83,7 @@ jobs:
       - name: "Configure kubectl"
         id: getconfi
         if: steps.apple.outcome == 'success'
-        run: |
-          aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER_NAME }}
+        run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER_NAME }}
       
 
       - name: Install Ingress controller
