@@ -19,7 +19,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
   BUCKET_TF_STATE: ${{secrets.BUCKET_TF_STATE}}
   AWS_REGION: us-east-2
-  EKS_CLUSTER_NAME: vprofile-eks
+  EKS_CLUSTER_NAME: my-eks
 
 
 jobs:
@@ -70,7 +70,7 @@ jobs:
       - name: "Terraform apply"
         id: apple
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform destroy -auto-approve -input=false -parallelism=1 #planfile.tfplan
+        run: terraform apply -auto-approve -input=false -parallelism=1 planfile.tfplan
 
       - name: "configure aws credentials"
         uses: aws-actions/configure-aws-credentials@v1
