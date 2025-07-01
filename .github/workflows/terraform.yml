@@ -70,7 +70,7 @@ jobs:
       - name: "Terraform apply"
         id: apple
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform destroy -no-color -input=false -auto-approve -parallelism=1 #planfile.tfplan
+        run: terraform apply -no-color -input=false -auto-approve -parallelism=1 planfile.tfplan
         
 
 
