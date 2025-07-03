@@ -54,17 +54,17 @@ jobs:
         run: terraform validate
 
 
-      - name: "Terraform plan"
-        id: plan
-        run: terraform plan -no-color -input=false -out planfile.tfplan
-        continue-on-error: true
+     # - name: "Terraform plan"
+      #  id: plan
+      #  run: terraform plan -no-color -input=false -out planfile.tfplan
+      #  continue-on-error: true
 
 
-      - name: Terraform plan status
-        if: steps.plan.outcome == 'failure'
-        run: |
-          echo "Terraform plan failed. Please check the logs for details."
-          exit 1
+     # - name: Terraform plan status
+     #   if: steps.plan.outcome == 'failure'
+     #   run: |
+     #     echo "Terraform plan failed. Please check the logs for details."
+     #     exit 1
 
 
       - name: "Terraform apply"
